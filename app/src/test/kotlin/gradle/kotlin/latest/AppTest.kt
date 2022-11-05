@@ -3,10 +3,15 @@ package gradle.kotlin.latest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class AppTest {
+class CellShould {
+
     @Test
-    fun appHasAGreeting() {
-        val classUnderTest = App()
-        assertThat(classUnderTest.greeting).isNotNull
+    fun remainDeadWhenLessThanTwoNeighborsAndItIsDead() {
+        val cell = Cell(CellStatus.Dead);
+        val amountOfNeighbors = 1
+
+        val newCell = cell.evolve(amountOfNeighbors)
+
+        assertThat(newCell).isEqualTo(Cell(CellStatus.Dead))
     }
 }
